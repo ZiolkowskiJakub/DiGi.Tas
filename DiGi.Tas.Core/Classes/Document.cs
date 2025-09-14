@@ -6,7 +6,7 @@ namespace DiGi.Tas.Core.Classes
     public abstract class Document<T> : IDocument, IDisposable
     {
         protected bool readOnly = false;
-        protected T value;
+        protected T? value;
         private bool disposed = false;
 
         public Document()
@@ -15,13 +15,7 @@ namespace DiGi.Tas.Core.Classes
 
         }
 
-        public Document(bool readOnly)
-            : this(null, readOnly)
-        {
-
-        }
-
-        public Document(string path, bool readOnly)
+        public Document(string? path, bool readOnly)
         {
             this.readOnly = readOnly;
             Load(path);
@@ -40,7 +34,7 @@ namespace DiGi.Tas.Core.Classes
             }
         }
 
-        public virtual T Value
+        public virtual T? Value
         {
             get
             {
@@ -48,9 +42,9 @@ namespace DiGi.Tas.Core.Classes
             }
         }
 
-        public static implicit operator T(Document<T> document)
+        public static implicit operator T?(Document<T>? document)
         {
-            return document == null ? default : document.value;
+            return document == null ? default : document.Value;
         }
 
         public abstract void Close();
@@ -64,7 +58,7 @@ namespace DiGi.Tas.Core.Classes
             GC.SuppressFinalize(this);
         }
 
-        public abstract bool Save(string path = null);
+        public abstract bool Save();
 
         protected virtual void Dispose(bool disposing)
         {
@@ -88,6 +82,6 @@ namespace DiGi.Tas.Core.Classes
             }
         }
 
-        protected abstract bool Load(string path = null);
+        protected abstract bool Load(string? path = null);
     }
 }

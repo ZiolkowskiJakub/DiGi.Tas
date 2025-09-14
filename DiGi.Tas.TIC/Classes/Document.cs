@@ -6,19 +6,13 @@ namespace DiGi.Tas.TIC.Classes
 {
     public class Document : Document<global::TIC.Document>
     {
-        public Document() 
+        public Document()
         {
-            
+
         }
 
         public Document(string path, bool readOnly = false)
             : base(path, readOnly)
-        {
-
-        }
-
-        public Document(bool readOnly = false)
-            : base(readOnly)
         {
 
         }
@@ -28,55 +22,58 @@ namespace DiGi.Tas.TIC.Classes
             value?.close();
         }
 
-        public override bool Save(string path = null)
+        public override bool Save()
         {
-            if (ReadOnly)
+            if (readOnly || value == null)
             {
                 return false;
             }
 
-            if(value == null)
-            {
-                value = new global::TIC.Document();
-            }
-
-            return path == null ? value.save() : value.create(path);
+            return value.save();
         }
 
-        protected override bool Load(string path = null)
+        protected override bool Load(string? path = null)
         {
+            value ??= new global::TIC.Document();
+
             if (string.IsNullOrWhiteSpace(path))
             {
-                return false;
+                return true;
             }
 
             if (File.Exists(path))
             {
-                FileInfo fileInfo = new FileInfo(path);
-
-                if (DiGi.Core.IO.Query.Locked(fileInfo))
+                if (DiGi.Core.IO.Query.Locked(new FileInfo(path)))
                 {
                     readOnly = true;
                 }
-            }
 
-            try
-            {
-                value = new global::TIC.Document();
-                if (readOnly)
+                try
                 {
-                    value.openReadOnly(path);
+                    if (readOnly)
+                    {
+                        value.openReadOnly(path);
+                    }
+                    else
+                    {
+                        value.open(path);
+                    }
                 }
-                else
+                catch
                 {
-                    value.open(path);
+                    return false;
                 }
-
-                return true;
             }
-            catch
+            else
             {
-
+                try
+                {
+                    value.create(path);
+                }
+                catch
+                {
+                    return false;
+                }
             }
 
             return false;

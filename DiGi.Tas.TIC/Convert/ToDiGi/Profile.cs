@@ -4,7 +4,7 @@ namespace DiGi.Tas.TIC
 {
     public static partial class Convert
     {
-        public static Analytical.Building.Classes.Profile ToDiGi(this global::TIC.IProfile profile)
+        public static Analytical.Building.Classes.Profile? ToDiGi(this global::TIC.IProfile? profile)
         {
             if(profile == null)
             {
@@ -13,7 +13,7 @@ namespace DiGi.Tas.TIC
 
             double factor = profile.factor;
 
-            List<double> values = new List<double>();
+            List<double> values = [];
             switch(profile.type)
             {
                 case global::TIC.ProfileTypes.ticValueProfile:
@@ -50,7 +50,7 @@ namespace DiGi.Tas.TIC
                 }
             }
 
-            Analytical.Building.Classes.Profile result = new Analytical.Building.Classes.Profile(values);
+            Analytical.Building.Classes.Profile result = new(values);
 
             return result;
         }

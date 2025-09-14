@@ -4,14 +4,14 @@ namespace DiGi.Tas.TIC
 {
     public static partial class Convert
     {
-        public static Analytical.Building.Classes.InternalCondition ToDiGi(this global::TIC.IInternalCondition internalCondition)
+        public static Analytical.Building.Classes.InternalCondition? ToDiGi(this global::TIC.IInternalCondition? internalCondition)
         {
             if(internalCondition == null)
             {
                 return null;
             }
 
-            Analytical.Building.Classes.InternalCondition result = new Analytical.Building.Classes.InternalCondition(internalCondition.name)
+            Analytical.Building.Classes.InternalCondition result = new(internalCondition.name)
             {
                 Description = internalCondition.description,
             };

@@ -4,9 +4,9 @@ namespace DiGi.Tas.TIC
 {
     public static partial class Convert
     {
-        public static InternalGainProfileType ToDiGi_InternalGainProfileType(this global::TIC.Profiles profiles)
+        public static InternalGainProfileType ToDiGi_InternalGainProfileType(this global::TIC.Profiles? profiles)
         {
-            switch(profiles)
+            switch (profiles)
             {
                 case global::TIC.Profiles.ticI:
                     return InternalGainProfileType.Infiltration;
@@ -31,6 +31,9 @@ namespace DiGi.Tas.TIC
 
                 case global::TIC.Profiles.ticLG:
                     return InternalGainProfileType.LightingGain;
+
+                default:
+                    break;
             }
 
             return InternalGainProfileType.Undefined;

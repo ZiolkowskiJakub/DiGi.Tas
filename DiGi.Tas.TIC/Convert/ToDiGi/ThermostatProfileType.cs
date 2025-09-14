@@ -6,7 +6,7 @@ namespace DiGi.Tas.TIC
     {
         public static ThermostatProfileType ToDiGi_ThermostatProfileType(this global::TIC.Profiles profiles)
         {
-            switch(profiles)
+            switch (profiles)
             {
                 case global::TIC.Profiles.ticLL:
                     return ThermostatProfileType.LowerLimit;
@@ -20,6 +20,8 @@ namespace DiGi.Tas.TIC
                 case global::TIC.Profiles.ticHUL:
                     return ThermostatProfileType.HumidityUpperLimit;
 
+                default:
+                    break;
             }
 
             return ThermostatProfileType.Undefined;

@@ -2,14 +2,14 @@
 {
     public static partial class Convert
     {
-        public static Analytical.Building.HVAC.Classes.SystemProperties ToDiGi_SystemProperties(this global::TIC.IInternalGain internalGain)
+        public static Analytical.Building.HVAC.Classes.SystemProperties? ToDiGi_SystemProperties(this global::TIC.IInternalGain internalGain)
         {
             if(internalGain == null)
             {
                 return null;
             }
 
-            Analytical.Building.HVAC.Classes.SystemProperties result = new Analytical.Building.HVAC.Classes.SystemProperties()
+            Analytical.Building.HVAC.Classes.SystemProperties result = new()
             {
                 MetabolicRate = internalGain.personGain,
                 DomesticHotWater = internalGain.domesticHotWater,

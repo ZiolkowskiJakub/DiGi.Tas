@@ -17,18 +17,12 @@ namespace DiGi.Tas.TBD.Classes
 
         }
 
-        public Document(bool readOnly = false)
-            : base(readOnly)
-        {
-
-        }
-
         public override void Close()
         {
             value?.close();
         }
 
-        public override bool Save(string path = null)
+        public override bool Save()
         {
             if (ReadOnly || value == null)
             {
@@ -38,40 +32,48 @@ namespace DiGi.Tas.TBD.Classes
             return value.save() == 1;
         }
 
-        protected override bool Load(string path = null)
+        protected override bool Load(string? path = null)
         {
+            value ??= new global::TBD.TBDDocument();
+
             if (string.IsNullOrWhiteSpace(path))
             {
-                return false;
+                return true;
             }
 
             if (File.Exists(path))
             {
-                FileInfo fileInfo = new FileInfo(path);
-
-                if (DiGi.Core.IO.Query.Locked(fileInfo))
+                if (DiGi.Core.IO.Query.Locked(new FileInfo(path)))
                 {
                     readOnly = true;
                 }
-            }
 
-            try
-            {
-                value = new global::TBD.TBDDocument();
-                if (readOnly)
+                try
                 {
-                    value.openReadOnly(path);
+                    if (readOnly)
+                    {
+                        value.openReadOnly(path);
+                    }
+                    else
+                    {
+                        value.open(path);
+                    }
                 }
-                else
+                catch
                 {
-                    value.open(path);
+                    return false;
                 }
-
-                return true;
             }
-            catch
+            else
             {
-
+                try
+                {
+                    value.create(path);
+                }
+                catch
+                {
+                    return false;
+                }
             }
 
             return false;

@@ -4,14 +4,14 @@ namespace DiGi.Tas.TIC
 {
     public static partial class Convert
     {
-        public static Analytical.Building.HVAC.Classes.Thermostat ToDiGi(this global::TIC.IThermostat thermostat)
+        public static Analytical.Building.HVAC.Classes.Thermostat? ToDiGi(this global::TIC.IThermostat? thermostat)
         {
             if(thermostat == null)
             {
                 return null;
             }
 
-            Analytical.Building.HVAC.Classes.Thermostat result = new Analytical.Building.HVAC.Classes.Thermostat()
+            Analytical.Building.HVAC.Classes.Thermostat? result = new()
             {
                 Name = thermostat.name,
                 Description = thermostat.description,
