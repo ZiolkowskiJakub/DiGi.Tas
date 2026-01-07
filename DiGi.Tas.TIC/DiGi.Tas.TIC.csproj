@@ -27,13 +27,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\DiGi.Analytical\DiGi.Analytical.Building.HVAC\DiGi.Analytical.Building.HVAC.csproj" />
-	  <ProjectReference Include="..\..\DiGi.Analytical\DiGi.Analytical.Building\DiGi.Analytical.Building.csproj" />
-	  <ProjectReference Include="..\..\DiGi.Analytical\DiGi.Analytical\DiGi.Analytical.csproj" />
 	  <ProjectReference Include="..\DiGi.Tas.Core\DiGi.Tas.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Reference Include="DiGi.Analytical">
+	    <HintPath>..\..\DiGi.Analytical\bin\DiGi.Analytical.dll</HintPath>
+	  </Reference>
+	  <Reference Include="DiGi.Analytical.Building">
+	    <HintPath>..\..\DiGi.Analytical\bin\DiGi.Analytical.Building.dll</HintPath>
+	  </Reference>
+	  <Reference Include="DiGi.Analytical.Building.HVAC">
+	    <HintPath>..\..\DiGi.Analytical\bin\DiGi.Analytical.Building.HVAC.dll</HintPath>
+	  </Reference>
 	  <Reference Include="DiGi.Core">
 	    <HintPath>..\..\DiGi.Core\bin\DiGi.Core.dll</HintPath>
 	  </Reference>
