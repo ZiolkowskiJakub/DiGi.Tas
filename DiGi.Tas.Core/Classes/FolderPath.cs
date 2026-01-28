@@ -9,25 +9,21 @@ namespace DiGi.Tas.Core.Classes
         public FolderPath(IEnumerable<string> names)
             : base(names)
         {
-
         }
 
         public FolderPath(string name)
             : base(name)
         {
-
         }
 
         public FolderPath(string name, FolderPath folderPath)
             : base(name, folderPath)
         {
-
         }
 
         public FolderPath(JsonObject jsonObject)
             : base(jsonObject)
         {
-
         }
 
         protected override FolderPath Create(string name)

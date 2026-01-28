@@ -1,6 +1,6 @@
 ﻿namespace DiGi.Tas.Core.Interfaces
 {
-    public interface IDocument: ITasObject
+    public interface IDocument : ITasObject
     {
     }
 }

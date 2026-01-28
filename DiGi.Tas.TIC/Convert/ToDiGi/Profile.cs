@@ -6,7 +6,7 @@ namespace DiGi.Tas.TIC
     {
         public static Analytical.Building.Classes.Profile? ToDiGi(this global::TIC.IProfile? profile)
         {
-            if(profile == null)
+            if (profile == null)
             {
                 return null;
             }
@@ -14,7 +14,7 @@ namespace DiGi.Tas.TIC
             double factor = profile.factor;
 
             List<double> values = [];
-            switch(profile.type)
+            switch (profile.type)
             {
                 case global::TIC.ProfileTypes.ticValueProfile:
                     values.Add(profile.value * factor);
@@ -24,7 +24,7 @@ namespace DiGi.Tas.TIC
                     for (int i = 1; i <= 24; i++)
                     {
                         values.Add(profile.hourlyValues[i] * factor);
-                    }                    
+                    }
                     break;
 
                 case global::TIC.ProfileTypes.ticYearlyProfile:
@@ -36,14 +36,14 @@ namespace DiGi.Tas.TIC
             }
 
             global::TIC.ISchedule schedule = profile.Schedule;
-            if(schedule != null)
+            if (schedule != null)
             {
                 double setbackValue = profile.setbackValue;
 
                 for (int i = 0; i < values.Count; i++)
                 {
                     bool value = schedule.get_values((i % 23) + 1);
-                    if(value)
+                    if (value)
                     {
                         values[i] = setbackValue;
                     }

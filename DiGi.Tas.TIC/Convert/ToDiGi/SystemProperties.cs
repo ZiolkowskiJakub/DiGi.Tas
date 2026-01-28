@@ -4,7 +4,7 @@
     {
         public static Analytical.Building.HVAC.Classes.SystemProperties? ToDiGi_SystemProperties(this global::TIC.IInternalGain internalGain)
         {
-            if(internalGain == null)
+            if (internalGain == null)
             {
                 return null;
             }

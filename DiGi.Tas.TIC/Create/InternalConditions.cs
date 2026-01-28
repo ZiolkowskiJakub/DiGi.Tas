@@ -9,7 +9,7 @@ namespace DiGi.Tas.TIC
         public static List<Analytical.Building.Classes.InternalCondition>? InternalConditions(this Document? document)
         {
             global::TIC.Document? document_TIC = document?.Value;
-            if(document_TIC == null)
+            if (document_TIC == null)
             {
                 return null;
             }
@@ -17,7 +17,7 @@ namespace DiGi.Tas.TIC
             List<Analytical.Building.Classes.InternalCondition> result = [];
 
             global::TIC.InternalConditionFolder internalConditionFolder = document_TIC.internalConditionRoot;
-            if(internalConditionFolder == null)
+            if (internalConditionFolder == null)
             {
                 return result;
             }
@@ -27,7 +27,7 @@ namespace DiGi.Tas.TIC
 
         public static List<Analytical.Building.Classes.InternalCondition>? InternalConditions(this global::TIC.InternalConditionFolder? internalConditionFolder, bool includeNested = true, FolderPath? folderPath = null)
         {
-            if(internalConditionFolder == null)
+            if (internalConditionFolder == null)
             {
                 return null;
             }
@@ -39,8 +39,8 @@ namespace DiGi.Tas.TIC
             int i = 1;
 
             global::TIC.IInternalCondition internalCondition_TIC = internalConditionFolder.internalConditions(i);
-            
-            while(internalCondition_TIC != null)
+
+            while (internalCondition_TIC != null)
             {
                 Analytical.Building.Classes.InternalCondition? internalCondition = internalCondition_TIC.ToDiGi();
                 if (internalCondition != null)
@@ -53,7 +53,7 @@ namespace DiGi.Tas.TIC
                 internalCondition_TIC = internalConditionFolder.internalConditions(i);
             }
 
-            if(!includeNested)
+            if (!includeNested)
             {
                 return result;
             }
@@ -61,10 +61,10 @@ namespace DiGi.Tas.TIC
             i = 1;
 
             global::TIC.InternalConditionFolder internalConditionFolder_Child = internalConditionFolder.childFolders(i);
-            while(internalConditionFolder_Child != null)
+            while (internalConditionFolder_Child != null)
             {
                 List<Analytical.Building.Classes.InternalCondition>? internalConditions = internalConditionFolder.InternalConditions(includeNested, folderPath_Temp);
-                if(internalConditions != null)
+                if (internalConditions != null)
                 {
                     result.AddRange(internalConditions);
                 }

@@ -6,7 +6,7 @@ namespace DiGi.Tas.TIC
     {
         public static Analytical.Building.HVAC.Classes.Thermostat? ToDiGi(this global::TIC.IThermostat? thermostat)
         {
-            if(thermostat == null)
+            if (thermostat == null)
             {
                 return null;
             }
@@ -17,10 +17,10 @@ namespace DiGi.Tas.TIC
                 Description = thermostat.description,
             };
 
-            foreach(global::TIC.Profiles profiles in System.Enum.GetValues(typeof(global::TIC.Profiles)))
+            foreach (global::TIC.Profiles profiles in System.Enum.GetValues(typeof(global::TIC.Profiles)))
             {
                 ThermostatProfileType thermostatProfileType = profiles.ToDiGi_ThermostatProfileType();
-                if(thermostatProfileType == ThermostatProfileType.Undefined)
+                if (thermostatProfileType == ThermostatProfileType.Undefined)
                 {
                     continue;
                 }

@@ -3,7 +3,6 @@ using DiGi.Core.Parameter.Classes;
 using DiGi.Tas.Core.Classes;
 using System.ComponentModel;
 
-
 namespace DiGi.Tas.TIC.Enums
 {
     [AssociatedTypes(typeof(IInternalCondition)), Description("Internal condition parameter")]

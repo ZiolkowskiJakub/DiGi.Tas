@@ -6,7 +6,7 @@ namespace DiGi.Tas.TIC
     {
         public static Analytical.Building.HVAC.Classes.InternalGain? ToDiGi(this global::TIC.IInternalGain? internalGain)
         {
-            if(internalGain == null)
+            if (internalGain == null)
             {
                 return null;
             }
@@ -23,10 +23,10 @@ namespace DiGi.Tas.TIC
                 EquipmentViewCoefficient = internalGain.equipmentViewCoefficient,
             };
 
-            foreach(global::TIC.Profiles? profiles in System.Enum.GetValues(typeof(global::TIC.Profiles)))
+            foreach (global::TIC.Profiles? profiles in System.Enum.GetValues(typeof(global::TIC.Profiles)))
             {
                 InternalGainProfileType internalGainProfileType = profiles.ToDiGi_InternalGainProfileType();
-                if(internalGainProfileType == InternalGainProfileType.Undefined)
+                if (internalGainProfileType == InternalGainProfileType.Undefined)
                 {
                     continue;
                 }

@@ -12,7 +12,6 @@ namespace DiGi.Tas.Core.Classes
         public Document()
             : this(null, false)
         {
-
         }
 
         public Document(string? path, bool readOnly)

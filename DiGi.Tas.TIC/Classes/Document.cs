@@ -1,20 +1,17 @@
 ﻿using DiGi.Tas.Core.Classes;
 using System.IO;
 
-
 namespace DiGi.Tas.TIC.Classes
 {
     public class Document : Document<global::TIC.Document>
     {
         public Document()
         {
-
         }
 
         public Document(string path, bool readOnly = false)
             : base(path, readOnly)
         {
-
         }
 
         public override void Close()

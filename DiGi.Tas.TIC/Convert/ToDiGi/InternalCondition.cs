@@ -6,7 +6,7 @@ namespace DiGi.Tas.TIC
     {
         public static Analytical.Building.Classes.InternalCondition? ToDiGi(this global::TIC.IInternalCondition? internalCondition)
         {
-            if(internalCondition == null)
+            if (internalCondition == null)
             {
                 return null;
             }
@@ -19,14 +19,14 @@ namespace DiGi.Tas.TIC
             result.SetValue(Enums.InternalConditionParameter.IncludeSolarInMeanRadiantTemperature, internalCondition.includeSolarInMRT, new DiGi.Core.Parameter.Classes.SetValueSettings(true, false));
 
             global::TIC.IInternalGain internalGain = internalCondition.GetInternalGain();
-            if(internalGain != null)
+            if (internalGain != null)
             {
                 result.SetInternalGain(internalGain.ToDiGi());
                 result.SetSystemProperties(internalGain.ToDiGi_SystemProperties());
             }
 
             global::TIC.IThermostat thermostat = internalCondition.GetThermostat();
-            if(thermostat != null)
+            if (thermostat != null)
             {
                 result.SetThermostat(thermostat.ToDiGi());
             }
