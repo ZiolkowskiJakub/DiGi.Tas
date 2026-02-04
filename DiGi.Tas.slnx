@@ -1,0 +1,19 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+  </Folder>
+  <Project Path="DiGi.Tas.Core/DiGi.Tas.Core.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="DiGi.Tas.TBD/DiGi.Tas.TBD.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+  <Project Path="DiGi.Tas.TIC/DiGi.Tas.TIC.csproj">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+</Solution>
