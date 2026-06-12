@@ -1,4 +1,4 @@
-﻿using DiGi.Tas.Core.Classes;
+using DiGi.Tas.Core.Classes;
 using DiGi.Tas.TIC.Classes;
 using System.Collections.Generic;
 
@@ -6,6 +6,11 @@ namespace DiGi.Tas.TIC
 {
     public static partial class Create
     {
+        /// <summary>
+        /// Retrieves a list of internal conditions from the specified document.
+        /// </summary>
+        /// <param name="document">The document to extract internal conditions from.</param>
+        /// <returns>A list of <see cref="Analytical.Building.Classes.InternalCondition"/> objects, or <c>null</c> if the document is null.</returns>
         public static List<Analytical.Building.Classes.InternalCondition>? InternalConditions(this Document? document)
         {
             global::TIC.Document? document_TIC = document?.Value;
@@ -25,6 +30,13 @@ namespace DiGi.Tas.TIC
             return InternalConditions(internalConditionFolder, true);
         }
 
+        /// <summary>
+        /// Retrieves a list of internal conditions from the specified folder, optionally including those in nested child folders.
+        /// </summary>
+        /// <param name="internalConditionFolder">The folder to extract internal conditions from.</param>
+        /// <param name="includeNested">A boolean value indicating whether to recursively include conditions from child folders.</param>
+        /// <param name="folderPath">The current path context for the folder hierarchy.</param>
+        /// <returns>A list of <see cref="Analytical.Building.Classes.InternalCondition"/> objects, or <c>null</c> if the folder is null.</returns>
         public static List<Analytical.Building.Classes.InternalCondition>? InternalConditions(this global::TIC.InternalConditionFolder? internalConditionFolder, bool includeNested = true, FolderPath? folderPath = null)
         {
             if (internalConditionFolder == null)

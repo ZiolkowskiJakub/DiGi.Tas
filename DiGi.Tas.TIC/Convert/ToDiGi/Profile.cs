@@ -1,9 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace DiGi.Tas.TIC
 {
     public static partial class Convert
     {
+        /// <summary>
+        /// Converts a TIC profile instance to its corresponding Analytical Building Profile representation.
+        /// </summary>
+        /// <param name="profile">The source TIC profile to convert.</param>
+        /// <returns>A new <see cref="Analytical.Building.Classes.Profile"/> object if the input is not null; otherwise, null.</returns>
         public static Analytical.Building.Classes.Profile? ToDiGi(this global::TIC.IProfile? profile)
         {
             if (profile == null)

@@ -1,9 +1,14 @@
-﻿using DiGi.Analytical.Building.HVAC;
+using DiGi.Analytical.Building.HVAC;
 
 namespace DiGi.Tas.TIC
 {
     public static partial class Convert
     {
+        /// <summary>
+        /// Converts a TIC internal condition to its corresponding DiGi analytical building representation.
+        /// </summary>
+        /// <param name="internalCondition">The source TIC internal condition instance.</param>
+        /// <returns>The converted <see cref="Analytical.Building.Classes.InternalCondition"/> object, or <c>null</c> if the input is null.</returns>
         public static Analytical.Building.Classes.InternalCondition? ToDiGi(this global::TIC.IInternalCondition? internalCondition)
         {
             if (internalCondition == null)

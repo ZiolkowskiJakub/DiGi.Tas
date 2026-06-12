@@ -1,9 +1,14 @@
-﻿using DiGi.Analytical.Building.HVAC.Enums;
+using DiGi.Analytical.Building.HVAC.Enums;
 
 namespace DiGi.Tas.TIC
 {
     public static partial class Convert
     {
+        /// <summary>
+        /// Converts a TIC profile type to the corresponding DiGi internal gain profile type.
+        /// </summary>
+        /// <param name="profiles">The TIC profiles enumeration value to convert.</param>
+        /// <returns>The mapped <see cref="InternalGainProfileType"/>, or <see cref="InternalGainProfileType.Undefined"/> if no mapping is found or the input is null.</returns>
         public static InternalGainProfileType ToDiGi_InternalGainProfileType(this global::TIC.Profiles? profiles)
         {
             switch (profiles)

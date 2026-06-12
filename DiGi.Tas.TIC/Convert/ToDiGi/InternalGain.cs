@@ -1,9 +1,14 @@
-﻿using DiGi.Analytical.Building.HVAC.Enums;
+using DiGi.Analytical.Building.HVAC.Enums;
 
 namespace DiGi.Tas.TIC
 {
     public static partial class Convert
     {
+        /// <summary>
+        /// Converts a TIC internal gain object to its corresponding DiGi analytical building HVAC representation.
+        /// </summary>
+        /// <param name="internalGain">The source internal gain instance from the TIC namespace.</param>
+        /// <returns>A converted <see cref="Analytical.Building.HVAC.Classes.InternalGain"/> instance, or <c>null</c> if the input is null.</returns>
         public static Analytical.Building.HVAC.Classes.InternalGain? ToDiGi(this global::TIC.IInternalGain? internalGain)
         {
             if (internalGain == null)
