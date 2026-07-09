@@ -1,3 +1,5 @@
+#### [DiGi\.Tas\.Core](DiGi.Tas.Core.Overview.md 'DiGi\.Tas\.Core\.Overview')
+
 ## DiGi\.Tas\.Core\.Classes Namespace
 ### Classes
 
